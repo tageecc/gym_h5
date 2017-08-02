@@ -1,0 +1,589 @@
+body, html {
+    font: 12px/18px Simsun, Helvetica, Arial, sans-serif
+}
+
+body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, td, textarea, th, ul {
+    padding: 0;
+    margin: 0
+}
+
+button, input, label, option, select, textarea {
+    font: 12px/18px Simsun, Helvetica, Arial, sans-serif
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400
+}
+
+ul {
+    list-style: none
+}
+
+img {
+    border: none;
+    display: block
+}
+
+button {
+    cursor: pointer
+}
+
+input, textarea {
+    font-size: 12px
+}
+
+a {
+    text-decoration: none;
+    color: #333
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #bd0a01
+}
+
+::selection {
+    background-color: #690;
+    color: #fff
+}
+
+::-moz-selection {
+    background-color: #690;
+    color: #fff
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.dis {
+    display: block
+}
+
+.undis {
+    display: none
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    position: fixed;
+    width: 100%
+}
+
+#home {
+    top: 0;
+    bottom: 8%;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden
+}
+
+#home:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: top center;
+    z-index: 1;
+    background-image: url("../images/bg-page1-2478729d1a.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/bg-page1-2478729d1a.png*/
+}
+
+#home .title {
+    position: absolute;
+    z-index: 2;
+    top: 25.4%;
+    width: 98%;
+    left: 1%;
+    padding-top: 40%;
+    background: url("../images/page1-title-7a4d29aa26.png") no-repeat;
+    background-size: 100% auto;
+    opacity: .1;
+    transition: opacity 1s ease-in;
+    -webkit-transition: opacity 1s ease-in
+}
+
+#home .logo {
+    position: absolute;
+    top: 24px;
+    z-index: 2;
+    width: 84px;
+    height: 17px;
+    right: 14px;
+    background-image: url("../images/sprite/sprite-672983b7b9.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*/;
+    background-position: -164px -72px;
+    background-size: 415px 165px !important
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    #home .logo {
+        background-image: url("../images/sprite/sprite-c97671888b.2x.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-c97671888b.2x.png*/;
+        background-position: -164px -72px;
+        background-size: 415px 165.5px !important;
+        background-size: 84px 17px
+    }
+}
+
+#home .btn {
+    display: block;
+    position: absolute;
+    width: 40%;
+    text-align: center;
+    z-index: 3;
+    line-height: 35px;
+    height: 35px;
+    color: #fff;
+    font-size: 14px;
+    transition: bottom .8s ease-in;
+    -webkit-transition: bottom .8s ease-in;
+    border: 1px solid #3d5fcd;
+    border-radius: 35px;
+    /*background-image: url("../images/sprite/sprite-672983b7b9.png") !*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*!;
+    background-position: -164px 0;
+    background-size: 415px 165px !important*/
+
+}
+
+#home #txt-cp {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    transition: bottom .8s ease-in;
+    -webkit-transition: bottom .8s ease-in
+}
+
+#home #btn-zz {
+    bottom: 140px;
+    left: 8%;
+}
+#home #btn-tyhd{
+    right: 8%;
+    bottom: 140px;
+}
+#home #btn-dl {
+    bottom: 80px;
+    left: 8%;
+}
+
+#home #btn-jj {
+    bottom: 20px;
+    left: 8%;
+}
+#home #btn-tymt{
+    right: 8%;
+    bottom: 80px;
+}
+#home #btn-tyblh{
+    right: 8%;
+    bottom: 20px;
+}
+#home #txt-cp {
+    bottom: 36px
+}
+
+#home.show {
+    visibility: visible
+}
+
+#home.show .title {
+    opacity: 1
+}
+
+#ct-menu {
+    position: absolute;
+    left: -60%;
+    top: 42px;
+    bottom: 0;
+    width: 54%;
+    padding: 11px 0 0 13px;
+    transition: left .8s;
+    -webkit-transition: left .8s;
+    overflow: auto;
+    z-index: 3
+}
+
+#ct-menu.show {
+    left: 0
+}
+
+#ct-menu:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 100% 100%;
+    background-position: top left;
+    background-image: url("../images/menu-877eb4476a.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/menu-877eb4476a.png*/;
+    z-index: -1
+}
+
+#ct-menu .ct-menu-divider {
+    width: 80%;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    border-top: 1px solid #fff
+}
+
+#ct-menu .ct-menu-body {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    overflow: auto
+}
+
+#ct-menu .ct-menu-part {
+    margin-bottom: 15px
+}
+
+#ct-menu .ct-menu-part.show .ls-menu {
+    display: block
+}
+
+#ct-menu .ct-menu-part.show .ct-menu-blue {
+    color: #cc2525
+}
+
+#ct-menu p {
+    font-size: 16px;
+    color: #fff;
+    z-index: 1;
+    margin-bottom: 4px
+}
+
+#ct-menu p [data-dpr="2"] div {
+    font-size: 32px
+}
+
+#ct-menu p.ct-menu-blue {
+    color: #0aabff
+}
+
+#ct-menu p.ct-menu-red {
+    color: #cc2525
+}
+
+#ct-menu .ls-menu {
+    display: none
+}
+
+#ct-menu .item-menu {
+    font-size: 12px;
+    color: #fff;
+    line-height: 3.611
+}
+
+#ct-menu .item-menu:before {
+    content: '';
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 2px;
+    background-color: #fff
+}
+
+#ct-modal {
+    font-size: 20px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, .5)
+}
+
+#ct-modal .ct-modal-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-repeat: no-repeat;
+    transform: scale(.1, .1);
+    -webkit-transform: scale(.1, .1);
+    transition: transform .5s;
+    -webkit-transition: transform .5s
+}
+
+#ct-modal .ct-modal-body .btn-modal-close {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 15px;
+    right: 14px
+}
+
+#ct-modal.show {
+    visibility: visible
+}
+
+#ct-modal.show .ct-modal-body {
+    transform: scale(1, 1) translate(-50%, -50%);
+    -webkit-transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+#ct-opts {
+    position: absolute;
+    top: -42px;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    z-index: 3;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    transition: top .2s ease-in;
+    -webkit-transition: top .2s ease-in
+}
+
+#ct-opts #icon {
+    float: left;
+    height: 10px;
+    width: 13px;
+    background-image: url("../images/sprite/sprite-672983b7b9.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*/;
+    background-position: -380px -40px;
+    background-size: 415px 165px !important;
+    margin-top: 16px;
+    margin-left: 26px;
+    margin-right: 6px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    #ct-opts #icon {
+        background-image: url("../images/sprite/sprite-c97671888b.2x.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-c97671888b.2x.png*/;
+        background-position: -380px -40px;
+        background-size: 415px 165.5px !important;
+        background-size: 13px 10px
+    }
+}
+
+#ct-opts #txt-page {
+    float: right;
+    margin-right: 26px
+}
+
+#ct-opts.show {
+    top: 0
+}
+
+.ct-page {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    visibility: hidden
+}
+
+.ct-page .bgImg {
+    position: fixed;
+    top: 42px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: top center;
+    z-index: 1;
+    opacity: .1;
+    transition: opacity .8s ease-in;
+    -webkit-transition: opacity .8s ease-in
+}
+
+.ct-page .title {
+    width: 85%;
+    position: absolute;
+    left: 100%;
+    z-index: 2;
+    transition: 1s all;
+    bottom: 21%;
+    padding-top: 70%
+}
+
+.ct-page .logo {
+    position: absolute;
+    top: 66px;
+    right: 100%;
+    right: 14px;
+    z-index: 2;
+    opacity: .1;
+    transition: opacity .8s ease-in;
+    -webkit-transition: opacity .8s ease-in
+}
+
+.ct-page .btn-hz {
+    display: block;
+    position: absolute;
+    text-align: center;
+    line-height: 32px;
+    left: 50%;
+    bottom: 10%;
+    margin-left: -96px;
+    width: 170px;
+    height: 32px;
+    border-radius: 32px;
+    border: 1px solid #3d5fcd;
+    z-index: 2;
+    color: #fff;
+    background-color: #000;
+}
+
+.ct-page.show {
+    visibility: visible;
+    left: 0
+}
+
+.ct-page.show .logo {
+    opacity: 1
+}
+
+.ct-page.show .bgImg {
+    opacity: 1;
+
+}
+.ct-page.show .bgImg:after{
+    content: '';
+    display: block;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #000000);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #000000);
+}
+.ct-page.pos-left {
+    left: -100%
+}
+
+.ct-page.pos-right {
+    left: 100%
+}
+
+.icon-cr {
+    position: absolute;
+    background-size: 100% auto;
+    z-index: 2;
+    opacity: 1;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in
+}
+
+.icon-cr-t {
+    top: -239px;
+    left: 0;
+    height: 92px;
+    width: 54px;
+    background-image: url("../images/sprite/sprite-672983b7b9.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*/;
+    background-position: -110px 0;
+    background-size: 415px 165px !important
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    .icon-cr-t {
+        background-image: url("../images/sprite/sprite-c97671888b.2x.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-c97671888b.2x.png*/;
+        background-position: -110px 0;
+        background-size: 415px 165.5px !important;
+        background-size: 54px 92px
+    }
+}
+
+.icon-cr-b {
+    bottom: -165px;
+    right: 0;
+    height: 165px;
+    width: 110px;
+    background-image: url("../images/sprite/sprite-672983b7b9.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*/;
+    background-position: 0 0;
+    background-size: 415px 165px !important
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    .icon-cr-b {
+        background-image: url("../images/sprite/sprite-c97671888b.2x.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-c97671888b.2x.png*/;
+        background-position: 0 0;
+        background-size: 415px 165.5px !important;
+        background-size: 110px 165px
+    }
+}
+
+#icon-play {
+    position: absolute;
+    height: 19px;
+    width: 19px;
+    z-index: 3;
+    top: 10px;
+    left: 10px;
+    background-image: url("../images/sprite/sprite-672983b7b9.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-672983b7b9.png*/;
+    background-position: -361px -40px;
+    background-size: 415px 165px !important
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    #icon-play {
+        background-image: url("../images/sprite/sprite-c97671888b.2x.png") /*tpa=http://mat1.gtimg.com/pingjs/ext2020/mc/images/sprites/sprite-c97671888b.2x.png*/;
+        background-position: -361px -40px;
+        background-size: 415px 165.5px !important;
+        background-size: 19px 19px
+    }
+}
+
+#icon-play.playing {
+    animation: playing 3s infinite linear;
+    -webkit-animation: playing 3s infinite linear
+}
+
+@keyframes playing {
+    from {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes playing {
+    from {
+        -webkit-transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+.moveOutLeft .title {
+    left: -100% !important
+}
+
+.moveIn .title {
+    left: 50% !important;
+    margin-left: -43%
+}
+
+.moveOutRight .title {
+    left: 100% !important
+}
+
+/*  |xGv00|9eb9f380d985d203f2c23b6dd43c759e */

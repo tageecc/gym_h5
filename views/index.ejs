@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>央体体育赛事及经纪资源手册</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <style>
+        #loading {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            width: 100%;
+            z-index: 3;
+            background-color: #000000;
+        }
+
+        #loading #content {
+            position: fixed;
+            width: 200px;
+            height: 113px;
+            top: 25%;
+            left: 50%;
+            margin-left: -100px;
+            background-size: cover;
+            background-position: -20px 0;
+            z-index: 1;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAh0AAAEeCAMAAAAZwlfmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURUxpcf///////0S8vOKZnf///////////////////////0S8vOYAEuYAEuYAEkS8vP///+YAEuYAEkS8vES8vP///+YAEkS8vCkY+cUAAAAVdFJOUwBan3oS6Se9g0DPsa86f+Jw1ltEJ6yoNzgAABfUSURBVHja7J3rYqo6EIUFAglyVRTf/0131VYJZJJJrN1E1vw6Z1fFkq8zay4Jux0MBoPBYDAYDAaDwWAwT2sE7gGMsGONewCj4DjAdcAIq8cGNwFGwdHiJsDM1o4H3AQYoTlGxBUYDQfyFZjZmnEcka/AjCYOIyQpjExX4DpgtOiA64ARcWWE64BpNuhxBQkL7GlZpeUr4xG3BPaA43J6/PdXvoIyKWwSVi6VJkkRWGATzzFzHQgssKfnmLuOETcFdrdTd7kMuutAYIHdTXzB0ekJC0phsG+rLpdL9vi/eoTsgE0V6UST3sqkmOyAfYuOKxzdTJOijA57xJVFYEHKAnvElUmxYwQdsGm+ssxYQAfs6TqegaUFHTBNkk5LYTXogGmS9HJ5ZigH0AHTXcdTdnxXO1DvgD1cR7UQpaADdk9YpqL0+EMH+ixIWC5zUfqTsqBHC/t2HZNa2IMODA5Ck37bbkkHGi0ILPOU5VHuQAsfgeUyT1kmdEB4ILDQdCC0ILBY6EBo2bRVP3RkRjqQtWzaLgY6njkLyqWbtsFFB3QpZAdNB5wHZIdORzPCecB2z2qHlrNodMB5QJRqdOw0OpC2QJRqdBw0PNDHBx2TPsu04IGCKVIWvUerJy0QpqBjOt8xk6WILZtPaKezYTNZirwFdEwLHnPhMeLhTluno6KFB6TH5umYylIxpwPSY+t0DGTFA5MeoCOzhRYo043T0VlDC4pi26ZjWvFYZC1IXLZOxzS0HEfgATqo0LIbgcfWLdPo0LKWFniADs0qhy4FHlumw6VLgcembLj4Og/gsR07XbydB/DYjl38nQfw2GhKy3MewGOzdHCcB3ouG01anL044LFlWXrpJmFDHEg80NDfgnUXW2w5knRgHGiTwsM+YIphwo0LDy1voYXpFx5IXT7dhIGOqfRoLXggs91iaNFiy8GGB1KXDYaWaSu/GW0GPD48tHQvxBZktlsMLVpaW1vxQGb70XYy0TGVHsJKB1KXDTqP7sSNLUhdtqdLPWILUpePtu7F2ILUZXvOg5+3IHXZoPPwiC3A44NtMNIxrYk5Ywvw2Fjaou2Na4HHdmseTmFq7bcAj60L02YEHhCm4cIUeHxubDELU+YgEPDYpDCtvIQp8NiYMB38nAfw2JQw9XUeKKp/pgmn82BktcBju87jOAIPpC3kvmuW88C8R3xxIxt+IW3hOQ/gER8eVZc5Vm1wFkx5zgPb5CK0oeuqk/UV7m4LK20BHnG6j684cfLWpa4TslH2+KC0xMIHQ5fWwOOz8bDoD3doaZh0IK+N0W55STcEhxamLkXiEqf2uLuHSoSGliPXeUCZxpi5fPuDITC0cHUp9lDGG1so9+EuiLF1KaRHjHYybYa0C4+LCAkteBpUrHnLHY+MKzyGoNAC6RGvMJ0LirtdnMKDnbVAesTtPGaKgpal2staPh2QHlE7jwUe7n1P/IIYqh6xOw+9BUvK0l2Y8EBsidE6KmpQW2pPgcIDsSVy56Hj4d5w7VPxuMYW3O2onYdeCmUkLT6yFLElduehrT2DjqMXHaiJRe48prKCQUfjRwdqYpE7j0ni0v06HRCmsTuPylHw0IuqnnRAmEbuPJ5JyRvowBhhdHYi9iW8gw4I08hDy2P930IHstrYrDKXQyt3NcyfDjiPyIXHjzBl0CFGOI9Pt8HcS+mcw2HeGS3SlgjNPMTh7tGG0IG0JXJZ+u0g3NM/nn0WOI+PkKW3xEQw6KgD6EDBNHJZepsAGxgJ7SGEDnRbIqfjqksH9/DPbgwyJLWR05ERk4Pdy6IUujT6lPZKQfYeUYrQEj8dX1lL9SbZgdASPx2DuRimrasIhAOhJXY6stPbAgtCS/R0VNn7Ass44pbHTUeXvaPJgoLYZ9Bx6d5TKEWj9iPoeEf3HsLjg+nofkeTohP3kXRkv+U6UPH4PDr0PfrtS3RAln4aHUzXcTg2kKWfZBmLjhPLdbSsXBd0fBgdFcd11IIXdpC0fBgdHNfxcAkHJC2booPhOuqnbG1QS98UHZrrqJ1aogYdn2LVb7gOvS0vggoeRa+kPD9MSpUUUd5RsS06XK7jMK9g1N4Fj0TmZ4PlaRnb/UzyclN0aK6j4ZxGKvzoEMqIxjcgSVxsnM/bosPhOkxH1dY+dCQWNq62jybAlLfI+El0vOo6jOcYH/l0iPTstCQiNjZGh/2QUuKQ6wOXDrE/nz8Cj/KhqLdEh+NwdEKgt0w6eHCsH49ykm1tiY7M6jqofmvDpCPlwXHOi1jY+Cg6nC1aYVtzevsBj47kzDW54vrGDPEN0WF9GJyl21qzaqU5m44V3/PyvFk6BovrsDVbWw4dS9eRS6WUsTImQcfq6Ohs/sBWMm44dMg5AsoYyO9WgI610WF7Bq19ApAz3zEHoLfJ1QR0/Lll/Dpp6zXidXDTMb+t+fT9MprQslk6Onq9Xc96q92Tg/3stqbT9xdnGzugYwV0ZLSScE2Wt+5d+GreUNE+YFEncyWWiZJX4zT+y/7+2q9Xq9JH0BTqfgkRREeZqJ/rXq+clHHTQQcW5+hw6y53KKu00D3L1+0sKLmy0LF7m0Yp+v1iTsD0+kJqltz+6ennbit7+8n84/Y/yz+7rDR1GHsRLR10YHE/Q/ToTlkWdJzTYvpnqq5/XuXyb3tJRzG/8+SQhSkbur5eCUfAUPMEXBm+CSmUCroorESkdNAZi3vHUuNOWUyV0r1yu9sFHYWhQNIb/Yaka/W9i45iGUC4dChrl6CMk46BihSMTQeNeztLQd1Wh3RYVEKMJdd0+Ub7JIksrHSIfCmSeXQ4W41JlHQIKgcRL9BxZBXSv7SA4NJBfMzCe6Rerb45HalhRVl0MPrQSYR0dFR1i7ObrWHMHDuWa98XLDooK/zgmOExo2MWk3LBpkPF24LOQmSHeIGOgyUXZALCpSP3hENfJfuXUzsuHSXnq8r46BiIFIS1Ebbh7KKVjBuXFqF0nBWZIJM0CiYdBZsOuUh4U0ObsYyODqraIV6hQxsJKVgt/DkfbDpy4VTANFBWOtIdlw5hlL6LxFrGRgfVn+XtoW9YG+FK3ir3YXRMhOme+5aS9dVKNh0lEezSGFrQGXPwx/vsniNvAz5zOix10pGbpkJy+jJ5X+6KRNIKwEbHfsemQxGu6ZkgS5l61vP/zAbvJgvz+I2WedRxmfsKgh0VfAy1roLKnRVZAilsdOyVUvtnBsqopCsqgPRK9WW57m2VTDqO3sd+tdwd1kL6eg+6XpASEJR0yFlIn5Sm43tfXtF79Ghn+Wwa1S7bwbdSyj2bpeaf7MJzHz1NR08mQdJMjbQkMzlNRxHQwe+XleAynt3jPDpq7zPhap8T5RLpk4BY6hqFue2f25aZ+GFpTZDZdJSESkqjOGKApsMoStkH93ge+1OonJ1s2krm0rTUhXWQRJk/brmsIoQO69y9VCvfxlVx6BDeR8I1/o/fKB2A5GQXzrLUpWn9lHV1Ka1ClSQcdLgK6as+hKLilDsa76Noj0EH2RZJmrt7VbahsdLkCJS16SWYFfA+jA7hdIpyvSEm45Q7Wu/zAtvgsygFSYgKoEORDoXMgSg6ijA6OCWdPrqkxUgH+8lMh5fOwDarEMmgQ3DoKILo2AXSwWnSpiulQ3DoqH0PhBOvHlQqTLeUQceOQ8cuhI48mA4OHmv1Hp0HHez1PXJcR/ll1+HRa2FxuWZJEB3l23yHDKeDU9GJbMKjMqSn7MBSu1WHcjWx1dvoKP+aDkZFZ6WxZfCg46XAIhyLPy82FSF0JBw6Eut1pDXRDaTjprb3ETqPzklH8xuBpXXc1FmNylITtTkdIwj2hU549Y5X6bgRUiq5j0t5VGw6XgksizJp4ZyP4uYsqaUyWZoSGXutNHkfHd9vSJSMJrScnNWw5hcCy7LDkjuKkSW33jFxykSRwqvPIt5Nx91jpZHsIq9clfTm9VKYoRCmHH8+e26t9Dn8sdgckJsvJS1fY797kQ5Fl3G07mwSBx2Di47W87E7B9appobu5WT6YXmOKdlneRx4W+wJd1RY5jsoBoPpSBeJ+31z9eJnMgo6COcxzOl4ocdi7NybRv1+9jgZtq2lNB1fP0xKUwW+Ny7EZPfq4jqPQYFgOu7bHorbXovCFtNSpstZpfOY08Fu3tfMBou5AbGX2rMWDDeWP3VsGQPMVVmW/Z6eEwim43ZgQP7thHJaEM/ac+vt5Vf2ycHWS3Y07BJ67rHOk9Xhv0cSXpwzY8SXE7YvvIiP8ucC8zC43pHCE4eOY6jrII9zKD3gmOxN4b/pmT4UTBKTALFpaykv8/Y8vR47saidprv1WmYteDQ+sqPxeABtGrLQuwDXwd0aoUJSEWm7uvSMgbEUTLvZgocmLJZJVMHehJTs/OnQ9y5z8EiDEtXeRgfTaak1w2GMLSeNDqbsOHpNCwadoh9CFAsPKcLKGNZJR5bT2u/WbZktaeFXO4QXHEw8Zs93CoPDvU5pYJGLmt/gO6396ne5VBZZyt+q0PrBwdrsJB27rBUPDlO1jEbQhw5idFRw8YhgC5ToaOFRh+685+Q5pfRxHAY6TKUz4nFy9Nj74iAIDzoIcfEQ0oX1N4zjMYOnjjwZqmXWwsTBH47rQtCT6DJx1xcMR/qRf42iN10qXx4S4kWHef0nq04P/8hYnoo4kMLjyBSldRAct7UwPFlhT5wdZorv0znlvbKmh8Wsf743bzm6nYg5sdKPcJnqxxYJQ9s+l31Ej9zNKOHR8ETpcfQ8ttLUr7pbYtlsSqi/ouzVdV87JwQW31fqf3NP6/NDqe8gnr9hUkZ3YnZGCQ+WH2hGvwNvQ427lQD23sTl9AwZbkegi476fTocdKwDj+wpSz3hOL7xO4KOdeDxCC2NO2Wp/ySqgI4V4fETWkTtA0f73m8IOlYiTZ+hhQ9H/e7KH+j4RVPSYqYUcDCEFvuKiycch+PbfyHQ8YvmbmTMH18zdMYTbTmCtP2DlgHo+FM6zvPH1zyL6pUXHO2ftJNAx1/TceVjuuA/2rRzr3fzt2yAjv9Bx2NXiK5NM9fHH3/0xp+1of+1d67LjpswADasEbKnnXW3Td//URsbfAMJhG9JZ+HXyZzExvgDdKfS8Qk69m5vL3z8zFzdx6v/+eADVTo+Qsc+ZMYLH/9klZU/fj0bvVLp+BAd+4iqHzm59Ne/fz2NRqXjg3Ts47in3YVfPNpfHwl5q3R8io4gOrr9IZBLKx2/DR1hhNzfP3+2lY5KR5yS6KWPH5WOVFPwG9Hx5WlZd9PRbk6md4etJ78+xrPyKbAwurLWC6jxI3w5Hf7Asm6gQ8FN+zvToTYB6l226kqfTp/v9rMN5YWj6IeOUG7vosONhZHlCdEzYyxHm6yw51vBdIGuy/6KpcP/mL2spB+4Ec2ldAzP0QE7D7s5n0SXooMowLRXW8K4/XcDv0puPLxxH9U+A8HkTyKBQVui0gtxbZKOdrBMykKr1q70Q244TZaODcCd9vlKDNPX09FdnWNp07X9NJ/i15AlNsbHC0s7290zg6ZTirrk9s1mqXV5OqKy6qvLObwyJscTopKltkyOQ/pbmFnvqAYCOk6XG8vQQSSBqhwdKvWTRF6gpflosSjPNKaDqEPOFprbOxvDNmyLaTxBhxWqBxwdZ5WIDB3Eq8YMHerF1gPMHShAzVzI5uEbSNIxsMI1Wb7eQEaQMM3/hw4D99LRpgQPig6VEGSzKfXxzJXUP9mNQbS0sFZfJTTpBBuL9Uv7RF0fLvTfRYe6d2ehOpikg9BzlisKynGEsMuK45j0acX06Kpikw4mSj7gN9Ax6yyXVSrM0oGJIlbUmb18trmsVkt7xFiH5XSY8ipdxqkgF9CB6ys0o0lsc+b1+PkoHYEqcd5ymaWjS9QWEJUFtGVv2qalngtrDpbag5VXkrK/WRa8TVHSSALA/S8tOT0kdIx6jXsv3pijrytUmKUjrns1lNEBIoGUujxRDT0feXIBHX1i6Xhhlg6169SspAWLYrcvSDbQL0BCBwZb0oVw5OloEgMhoUOzlFkF46k1iXUg/k0/nQQeF/S0V9JBby3+pWfpWPcIw5umdpYCA4qvULYbastKQzMd7ZVw3E7HsqJqruRRpLJiYF8gQ1stZ6O7gg7FLx15OoxgzwxEMKQn1AE6lsG8pv7t3XQgswxs9uHQ4rYuHpavpgTcv66gA/ml44XOQbR2bQhMl5i/bE4+J0pXyeigjMr30mEO0OEc0zDY5U1jQrpQ3NSF8XCKnu6aYa5H5eIAZ6Md+0n8h6BjQRjD22OTsx9GO5beq06bR+k5k4uMDqrdS4ctp0Ox6zJhPo3/GXXBH2LSJbqFLB3zKqXZfqLAPRGoGMDLsK1AzTCLnQ7tm4Xpo13NRXB0ZzGv7187FGdm5GanTqFD+l4UK6zw5hbDCcyNLaZjSMiwm65NmepjFTC7HxY12Vyny8FbmBo/Ii6mZiySO8ZTe13P5j+epKNY7rCs/4qUIIjFGDLefJuYl3xvNKuaqPwTtPsb9cwm6e5jo7pwrTHBymfAe/B7C++PevbgIz05uqTPdcYAvp8O6t1qPgyAuA5vAe4Ga9KrNr+Q8ee/tQK+dwZISJlHoCeKXZh9Bd32/dHRgZOFTa/xHVodp4NQmPrvosOKblNurASFveAnvGVXic3vNqWzxKBBbsSIhwIfO6WXf3Zr8NRxOrQzsvT2mhCPA7ZSlaZjSBgLhE1HYgZaKVByn2EZHYu9I34cPEBHsOMOufckpAOcNWzQiwJ0Lx3FfhaQRHsW+FpaZUuWGzkdXRkd6JWM3SpkKAVUTofeiK+Tc1WfpMOD65QivJ+OQh8tIwUdpqNFU7YZ3UaHchoBzoPmZqYh5CQpHVRgk23P0aGcEr9uL/fSURjfwUhBR+mQntj2AB1+ouC82U6bgkVCBV888YtIStJBhvxzkcJSOswau+J2Y7yTjtLYMOYBDtLB2R2NVvZzdOg1zsMCoWS5a2wC9Sk62ADb7gwdbsDctdX9dCRPHO/EwRH9ITrolcOlHHyODth44+wuiUG+s4AWyVxFdABab3V1nWpvp4N4P+oIHZE1Mtn4QKs1PeZzdLg7g6cD48VDQAc/W7rDdMzWeB/b6xm5kQ7KmQhH6MCkNYwzikZsbLKbPkZH5/dXTwfExn8BHYtZv5/j8HXaPCGjw3/JOiU5Y1k8SwcpVDdH6FBia2gCqZ3A9jGpdA4Rm2PSTfTYImuYmQOEnIldR4ENBXTsRxfAz+LUWnSWDqDtDOoQHfDKB7hkhRWQuPXupsPk48lEUqlatIqXbpdUjqHc3hEeV4YNble1a+kwqw5GagvNITrCNy1K5U+9M/wUHQLrv0yjRbs4mpcYQ33AVmrCBbb1NphO4NEspaMkqK6AjiHxtbd0YyZXN5Udyux55svWjr4t21mcpU9m60jTsQ0lwv69Nc0mGHXaRVtKh20O0hFFVyhO9DVLPge/bMXS8nNyR/8KAkFNuBbKLen7XM0QDhQZANU24BBgTQXHp+kIhKYCOuJHnYX12GQ4MKM8JKyMz9EBIwu7b2O5Rjt3SadWDhkdswQ21w2y88593pBeSIdqDtMRh2a9h1UhJiIS4mAuYKXlB+0dOCuLi2vE2HI/Sxseoxp7WGR0uGFawipx/l/7epgObI7TIc9rAzaY6zv8LK1dL+f+DErHOZI3tTb6cGDAGkHgg5AOu03l6OaJ54Nh8DE6dHOGDunLVsU87fr2gJ+lCemgdC0XQ8ZptOFYkOXkhHQMm7AzL61jmWHpCjqwOUeHzNmijnln7FfSsd0ckbf/GFWuQa8X3FSP83D062uFZ+ignqCQDkkSvkrHpW2kk55WaL6LjoGT2WyWDTEd2xH2PqDlpydLQ0npIJe+QjrIKnVJBPm9xYbXgq+kAzj73/Jk9nSRjWj7VuvluyfosKmgAzkd4x5ZhqDi542i7/tddCxbS7RATFYSqy4v/6onEQyukDpEpwbaIe0aKqEjEdjw6lXWXrSlKFCRzdN0wDbWgKXDWR9sHGyOduiaO5obxalzp2+QpON9g2Sd7wN0jF4jSvwwXLB+6GRaqw0jKbHcSEdtj7S2W9Onp2TCLl0mdNDTl0dnzAB1+Gqrrbbaaqutttpqq6222mqrrbbaaquttnT7D8WGEwlVbKkIAAAAAElFTkSuQmCC");
+        }
+
+        #triangle {
+            width: 81px;
+            height: 85px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -42px;
+            margin-top: -50px;
+            z-index: 2;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABVCAYAAAAxHgggAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0VGQ0QwREM1Q0FDMTFFN0FGNUE4OUQ0OERDRjk1NUMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0VGQ0QwREQ1Q0FDMTFFN0FGNUE4OUQ0OERDRjk1NUMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDRUZDRDBEQTVDQUMxMUU3QUY1QTg5RDQ4RENGOTU1QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDRUZDRDBEQjVDQUMxMUU3QUY1QTg5RDQ4RENGOTU1QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Prjx/60AAAhgSURBVHja7J1JbFtV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');
+            animation: loading 1s infinite;
+        }
+
+        #progress {
+            font-family: "Microsoft YaHei";
+            font-size: 20px;
+            /* [data-dpr="2"] div {
+                    font-size: 32px;
+                }*/
+            font-weight: 700;
+            color: #ffffff;
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 2;
+        }
+
+        @keyframes loading {
+            0% {
+                top: 47%;
+                left: 48%;
+            }
+            50% {
+                top: 49%;
+                left: 49%;
+            }
+            100% {
+                top: 48%;
+                left: 50%;
+            }
+        }</style>
+    <script>//数据配置
+        var obj = {
+            //页面内容配置
+            data: [
+                {
+                    title: "赛事合作",
+                    content: [
+                        {
+                            groupName: "足球-世界杯",
+                            group: [
+                                {
+                                    id: 1, //id均不重复，唯一
+                                    desc: "足球-世界杯",
+                                    btn: "btnSjb", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/世界杯.jpg", //背景图片地址
+                                    textImg: "images/1.png", //文字图片地址
+                                    /*  logoImg: "", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+
+                        {
+                            groupName: "综合-奥运会",
+                            group: [
+                                {
+                                    id: 2,
+                                    desc: "综合-奥运会",
+                                    btn: "btnOyh",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/奥运会.jpg",
+                                    textImg: "images/2.png"
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "西班牙足球甲级联赛",
+                            group: [
+                                {
+                                    id: 3,
+                                    desc: "西班牙足球甲级联赛",
+                                    btn: "btnXby",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/西班牙足球甲级联赛.jpg",
+                                    textImg: "images/3.png"
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page42x-83ae54b871.png",
+                                     logoWidth: "68px",
+                                     logoHeight: "32px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "联赛-德国足球甲级联赛",
+                            group: [
+                                {
+                                    id: 4,
+                                    desc: "联赛-德国足球甲级联赛",
+                                    btn: "btnXby",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/德国足球超级联赛.jpg",
+                                    textImg: "images/4.png"
+                                    /* logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page52x-07ae83ac8c.png",
+                                     logoWidth: "70px",
+                                     logoHeight: "56px"*/
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "俱乐部、国家队赞助",
+                    content: [
+                        {
+                            groupName: "国际足球-巴塞罗那",
+                            group: [
+                                {
+                                    id: 5,
+                                    desc: "国际足球-巴塞罗那",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国际足球-巴塞罗那.jpg",
+                                    textImg: "images/5.png"
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page72x-cb918e84af.png",
+                                     logoWidth: "79px",
+                                     logoHeight: "43px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "国际足球-拜仁慕尼黑",
+                            group: [
+                                {
+                                    id: 6,
+                                    desc: "国际足球-拜仁慕尼黑",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国际足球-拜仁慕尼黑.jpg",
+                                    textImg: "images/6.png",
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page82x-c3deb98d9d.png",
+                                     logoWidth: "68px",
+                                     logoHeight: "36px"*/
+                                },
+                            ]
+                        },
+                        {
+                            groupName: "国际足球-皇家马德里",
+                            group: [
+                                {
+                                    id: 7,
+                                    desc: "国际足球-皇家马德里",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国际足球-皇家马德里.jpg",
+                                    textImg: "images/7.png",
+                                    /* logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page92x-94eade9b9f.png",
+                                     logoWidth: "41px",
+                                     logoHeight: "49px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "国际足球-切尔西",
+                            group: [
+                                {
+                                    id: 8,
+                                    desc: "国际足球-切尔西",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国际足球-切尔西.jpg",
+                                    textImg: "images/8.png",
+                                    /* logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page102x-94b7ecf055.png",
+                                     logoWidth: "56px",
+                                     logoHeight: "56px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "国际足球-格拉纳达",
+                            group: [
+                                {
+                                    id: 9,
+                                    desc: "国际足球-格拉纳达",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国际足球-格拉纳达.jpg",
+                                    textImg: "images/9.png",
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page112x-ed07845b97.png",
+                                     logoWidth: "48px",
+                                     logoHeight: "57px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "国内足球-重庆当代力帆",
+                            group: [
+                                {
+                                    id: 10,
+                                    desc: "国内足球-重庆力帆",
+                                    btn: "btnBsln",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国内足球-重庆力帆.jpg",
+                                    textImg: "images/10.png",
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page122x-1da964afbc.png",
+                                     logoWidth: "76px",
+                                     logoHeight: "32px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "NBA-森林狼",
+                            group: [
+                                {
+                                    id: 11,
+                                    desc: "NBA-森林狼",
+                                    btn: "btnSll",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/NBA-森林狼.jpg",
+                                    textImg: "images/11.png",
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page132x-7da001d6b7.png",
+                                     logoWidth: "36px",
+                                     logoHeight: "61px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "国家奥委会",
+                            group: [
+                                {
+                                    id: 12,
+                                    desc: "国家奥委会",
+                                    btn: "btnBx",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/国家奥委会.jpg",
+                                    textImg: "images/12.png",
+                                    /*logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page142x-8db06875b6.png",
+                                     logoWidth: "61px",
+                                     logoHeight: "38px"*/
+                                }
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "体育经纪合作",
+                    content: [
+                        {
+                            groupName: "足球",
+                            group: [
+                                {
+                                    id: 13,
+                                    index: 1, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "厄齐尔",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/厄齐尔.jpg",
+                                    textImg: "images/13.png",
+                                },
+                                {
+                                    id: 14,
+                                    index: 2, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "桑切斯",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/桑切斯.jpg",
+                                    textImg: "images/14.png",
+                                },
+                                {
+                                    id: 15,
+                                    index: 3, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "苏亚雷斯",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/苏亚雷斯.jpg",
+                                    textImg: "images/15.png",
+                                },
+                                {
+                                    id: 16,
+                                    index: 4, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "伊涅斯塔",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/伊涅斯塔.jpg",
+                                    textImg: "images/16.png",
+                                },
+                                {
+                                    id: 161,
+                                    index: 5, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "皮克",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/皮克.jpg",
+                                    textImg: "images/33.png",
+                                },
+                                {
+                                    id: 162,
+                                    index: 6, //index表示其在这类别中的顺序，由上到下顺序递增
+                                    desc: "郝海东",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/郝海东.jpg",
+                                    textImg: "images/34.png",
+                                }
+                            ]
+                        },
+
+                        {
+                            groupName: "篮球",
+                            group: [
+                                {
+                                    id: 17,
+                                    index: 1,
+                                    desc: "韦德",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/韦德.jpg",
+                                    textImg: "images/17.png"
+                                },
+                                {
+                                    id: 18,
+                                    index: 2,
+                                    desc: "马克·加索尔",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/马克加索尔.jpg",
+                                    textImg: "images/18.png"
+                                },
+                                {
+                                    id: 19,
+                                    index: 3,
+                                    desc: "扎克·拉文",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/扎克拉文.jpg",
+                                    textImg: "images/19.png"
+                                },
+                                {
+                                    id: 20,
+                                    index: 4,
+                                    desc: "周琦",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/周琦.jpg",
+                                    textImg: "images/20.png"
+                                },
+                                {
+                                    id: 201,
+                                    index: 5,
+                                    desc: "王哲林",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/王哲林.jpg",
+                                    textImg: "images/35.png"
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "台球",
+                            group: [
+                                {
+                                    id: 21,
+                                    index: 1,
+                                    desc: "丁俊晖",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/丁俊晖.jpg",
+                                    textImg: "images/21.png"
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "游泳",
+                            group: [
+                                {
+                                    id: 22,
+                                    index: 2,
+                                    desc: "傅园慧",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/傅园慧.jpg",
+                                    textImg: "images/22.png"
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "网球",
+                            group: [
+                                {
+                                    id: 23,
+                                    index: 3,
+                                    desc: "彭帅",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/彭帅.jpg",
+                                    textImg: "images/23.png"
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "蹦床",
+                            group: [
+                                {
+                                    id: 231,
+                                    index: 1,
+                                    desc: "何雯娜",
+                                    btn: "btnEqe",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/何雯娜.jpg",
+                                    textImg: "images/39.png"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "体育活动合作",
+                    content: [
+                        {
+                            groupName: "自制赛事-荧光跑",
+                            group: [
+                                {
+                                    id: 24,
+                                    desc: "奥运会",
+                                    btn: "btnAct",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/荧光跑.jpg",
+                                    textImg: "images/25.png",
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "骑行",
+                            group: [
+                                {
+                                    id: 25,
+                                    desc: "骑行",
+                                    btn: "btnAct",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/骑行.jpg",
+                                    textImg: "images/31.png",
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "2018年俄罗斯世界杯狂欢节",
+                            group: [
+                                {
+                                    id: 26, //id均不重复，唯一
+                                    desc: "2018年俄罗斯世界杯狂欢节",
+                                    btn: "btnAct", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/2018年俄罗斯世界杯嘉年华.jpg", //背景图片地址
+                                    textImg: "images/32.png", //文字图片地址
+                                    /*  logoImg: "", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "萌娃运动会",
+                            group: [
+                                {
+                                    id: 261, //id均不重复，唯一
+                                    desc: "萌娃运动会",
+                                    btn: "btnAct", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/萌娃运动会.jpg", //背景图片地址
+                                    textImg: "images/36.png", //文字图片地址
+                                    /*  logoImg: "", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "创联赛全球电竞嘉年华",
+                            group: [
+                                {
+                                    id: 262, //id均不重复，唯一
+                                    desc: "创联赛全球电竞嘉年华",
+                                    btn: "btnAct", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/创联赛全球电竞嘉年华.jpg", //背景图片地址
+                                    textImg: "images/37.png", //文字图片地址
+                                    /*  logoImg: "", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "体育媒体合作",
+                    content: [
+                        {
+                            groupName: "中超赛场广告",
+                            group: [
+                                {
+                                    id: 271, //id均不重复，唯一
+                                    desc: "中超赛场广告",
+                                    btn: "btnIcsc", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/中超赛场广告.jpg", //背景图片地址
+                                    textImg: "images/38.png", //文字图片地址
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page22x-682b14c397.png", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "英超赛场广告",
+                            group: [
+                                {
+                                    id: 27, //id均不重复，唯一
+                                    desc: "世界杯",
+                                    btn: "btnIcsc", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/英超赛场广告.png", //背景图片地址
+                                    textImg: "images/26.png", //文字图片地址
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page22x-682b14c397.png", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "西甲赛场广告",
+                            group: [
+                                {
+                                    id: 28,
+                                    desc: "西甲赛场广告",
+                                    btn: "btnXjsc",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/西甲赛场广告.jpg",
+                                    textImg: "images/27.png",
+                                    /* logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "NBA赛场广告",
+                            group: [
+                                {
+                                    id: 29,
+                                    desc: "NBA赛场广告",
+                                    btn: "btnNBA",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/NBA赛场广告.jpg",
+                                    textImg: "images/28.png",
+                                    /* logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "体育博览会",
+                    content: [
+                        {
+                            groupName: "中国厦门体育产业博览会",
+                            group: [
+                                {
+                                    id: 30, //id均不重复，唯一
+                                    desc: "中国厦门体育产业博览会",
+                                    btn: "btnTycy", //页面对应的按钮名称
+                                    bgImg: "http://gymh5.sportsdream.com/pic/中国厦门体育产业博览会.jpg", //背景图片地址
+                                    textImg: "images/29.png", //文字图片地址
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page22x-682b14c397.png", //logo图片地址
+                                     logoWidth: "66px", //logo尺寸
+                                     logoHeight: "52px" //logo尺寸*/
+                                }
+                            ]
+                        },
+                        {
+                            groupName: "中国厦门移动电竞产业博览会",
+                            group: [
+                                {
+                                    id: 31,
+                                    desc: "中国厦门移动电竞产业博览会",
+                                    btn: "btnTycy",
+                                    bgImg: "http://gymh5.sportsdream.com/pic/中国厦门移动电竞产业博览会.jpg",
+                                    textImg: "images/30.png",
+                                    /*  logoImg: "http://mat1.gtimg.com/pingjs/ext2020/mc/images/logo-page32x-0c39b3c144.png",
+                                     logoWidth: "53px",
+                                     logoHeight: "40px"*/
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            //按钮文字及弹窗配置
+            btn: {
+                btnSjb: {
+                    btnName: "赛事合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/足球-世界杯.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "400px"
+                },
+                btnOyh: {
+                    btnName: "赛事合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/综合-奥运会.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "400px"
+                },
+                btnXby: {
+                    btnName: "赛事合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/联赛-西班牙足球甲级联赛.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "400px"
+                },
+                btnBsln: {
+                    btnName: "俱乐部、国家队赞助",
+                    bgImg: "http://gymh5.sportsdream.com/pop/国际足球-巴塞罗那.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "400px"
+                },
+                btnSll: {
+                    btnName: "俱乐部、国家队赞助",
+                    bgImg: "http://gymh5.sportsdream.com/pop/NBA-森林狼.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "288px"
+                },
+                btnBx: {
+                    btnName: "俱乐部、国家队赞助",
+                    bgImg: "http://gymh5.sportsdream.com/pop/国家奥委会—巴西、俄罗斯、南非、乌兹别克斯坦、希腊.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "310px"
+                },
+                btnEqe: {
+                    btnName: "体育经纪合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/足球-厄齐尔.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "324px"
+                },
+                btnAct: {
+                    btnName: "体育活动合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/明星活动-伊涅斯塔中国行.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "324px"
+                },
+                btnIcsc: {
+                    btnName: "体育媒体合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/广告-英超赛场广告.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "108px"
+                },
+                btnXjsc: {
+                    btnName: "体育媒体合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/广告-西甲赛场广告.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "108px"
+                },
+                btnNBA: {
+                    btnName: "体育媒体合作",
+                    bgImg: "http://gymh5.sportsdream.com/pop/广告-NBA赛场广告.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "166px"
+                },
+                btnTycy: {
+                    btnName: "体育博览会",
+                    bgImg: "http://gymh5.sportsdream.com/pop/平台-中国厦门体育产业博览会.png", //弹窗图片地址
+                    ImgWidth: "269px",
+                    ImgHeight: "180px"
+                }
+
+            }
+        };
+
+        //提取预加载图片地址
+        var images = [];
+        for (var i = 0; i < obj.data.length; i++) {
+            for (var j = 0; j < obj.data[i].content.length; j++) {
+                var content = obj.data[i].content[j];
+                for (var k = 0; k < content.group.length; k++) {
+                    var group = content.group[k];
+                    images.push(group.bgImg);
+                    if (group.logoImg) {
+                        images.push(group.logoImg);
+                    }
+                    images.push(group.textImg);
+                }
+            }
+        }
+        for (btn in obj.btn) {
+            images.push(obj.btn[btn].bgImg);
+        }
+
+        var isFunc = function (f) {
+            return typeof f === 'function';
+        }
+        //构造器函数
+        var resLoader = function (config) {
+            this.option = {
+                resourceType: 'image', //资源类型，默认为图片
+                baseUrl: './', //基准url
+                resources: [], //资源路径数组
+                onStart: null, //加载开始回调函数，传入参数total
+                onProgress: null, //正在加载回调函数，传入参数currentIndex, total
+                onComplete: null //加载完毕回调函数，传入参数total
+            }
+            if (config) {
+                for (i in config) {
+                    this.option[i] = config[i];
+                }
+            } else {
+                alert('参数错误！');
+                return;
+            }
+            this.status = 0; //加载器的状态，0：未启动   1：正在加载   2：加载完毕
+            this.total = this.option.resources.length || 0; //资源总数
+            this.currentIndex = 0; //当前正在加载的资源索引
+        };
+
+        resLoader.prototype.start = function () {
+            this.status = 1;
+            var _this = this;
+            var baseUrl = this.option.baseUrl;
+            for (var i = 0, l = this.option.resources.length; i < l; i++) {
+                var r = this.option.resources[i],
+                    url = '';
+                if (r.indexOf('http://') === 0 || r.indexOf('https://') === 0) {
+                    url = r;
+                } else {
+                    url = baseUrl + r;
+                }
+
+                var image = new Image();
+                image.onload = function () {
+                    _this.loaded();
+                };
+                image.onerror = function () {
+                    _this.loaded();
+                };
+                image.src = url;
+            }
+            if (isFunc(this.option.onStart)) {
+                this.option.onStart(this.total);
+            }
+        }
+
+        resLoader.prototype.loaded = function () {
+            if (isFunc(this.option.onProgress)) {
+                this.option.onProgress(++this.currentIndex, this.total);
+            }
+            //加载完毕
+            if (this.currentIndex === this.total) {
+                if (isFunc(this.option.onComplete)) {
+                    this.option.onComplete(this.total);
+                }
+            }
+        }
+
+        var loader = new resLoader({
+            resources: images,
+            onStart: function (total) {
+            },
+            onProgress: function (current, total) {
+                var percent = Math.floor(current / total * 100);
+                document.getElementById('progress').textContent = percent + "%";
+            },
+            onComplete: function (total) {
+                document.getElementById("loading").style.display = 'none';
+                document.getElementById("home").className = 'show';
+            }
+        });
+        loader.start();</script>
+</head>
+<body data-boss-expo="FWZB_eAllh5">
+<div id="loading">
+    <div id="content">
+        <div id="progress">0%</div>
+    </div>
+</div>
+<div id="home"><!--<i class="logo"></i> --><i class="title"></i>
+    <a href="javascript:;" class="btn" id="btn-zz">赛事合作</a>
+    <a href="javascript:;" class="btn" id="btn-dl">俱乐部赞助</a>
+    <a href="javascript:;" class="btn" id="btn-jj">体育经纪合作</a>
+    <a href="javascript:;" class="btn" id="btn-tyhd">体育活动合作</a>
+    <a href="javascript:;" class="btn" id="btn-tymt">体育媒体合作</a>
+    <a href="javascript:;" class="btn" id="btn-tyblh">体育博览会</a>
+</div>
+<div id="container">
+    <div id="ct-menu"></div>
+    <div id="ct-modal">
+        <div class="ct-modal-body"><a class="btn-modal-close"></a></div>
+    </div>
+    <div id="ct-opts"><i id="icon"></i>
+        <p id="txt-page">07#</p>
+        <p id="title">俱乐部赞助及代理赛事一览</p></div>
+    <i class="icon-cr icon-cr-t">
+        <i id="icon-play"></i></i> <i class="icon-cr icon-cr-b"></i>
+    <div id="pages"></div>
+</div>
+<!--<script charset="gbk" src="http://pingjs.qq.com/ping.js"></script>-->
+
+<script>!function (t, e) {
+        "use strict";
+        function a() {
+            var t, e, a = ("" + p.catalog_full).replace(/-/g, ".").replace(/_/g, "-");
+            p.topic && p.topic.name && p.topic.name.length > 0 ? (t = "L.", e = "Z." + a + "." + p.topic.name) : (t = "L." + a, e = "Z.");
+            var n = "W." + p.type, o = "M." + p.tpl.type + p.tpl.stype, i = "P." + ("" + p.site).replace(/_/g, "-"),
+                c = "F." + f, l = t + "_" + e + "_" + n + "_" + o + "_" + i + "_" + c;
+            l && r({pgUserType: l})
+        }
+
+        function n(t) {
+            o(e, "click", function (e) {
+                var a = e.target;
+                "img" === a.tagName && (a = a.parentNode);
+                var n = a.tagName.toLowerCase(), o = a.getAttribute("href");
+                if (!o || o.indexOf("qqcom_pgv_from=") > -1)return !1;
+                if ("a" === n && a.hostname && a.hostname.indexOf("qq.com") > -1) {
+                    var r = o + (a.search ? "&" : "?") + "qqcom_pgv_from=" + t;
+                    a.setAttribute("href", r)
+                }
+            })
+        }
+
+        function o(a, n, o) {
+            var r = function (a) {
+                return a = a || t.event, a.target || (a.target = a.srcElement || e), 3 === a.target.nodeType && (a.target = a.target.parentNode), a
+            };
+            return a.addEventListener ? a.addEventListener(n, function (t) {
+                o.call(t.currentTarget, r(t))
+            }, !1) : a.attachEvent("on" + n, function (t) {
+                o.call(a, r(t))
+            }), !0
+        }
+
+        if (!t || !t.location || "function" != typeof t.pgvMain)return !1;
+        var r = function () {
+            var e = arguments;
+            setTimeout(function () {
+                t.pgvMain.apply(this, e)
+            }, 0)
+        }, i = location.search.replace(/adtag=client\.qq\.\d+_\.0/i, "from=tips"), c = ["aio", "tips"], f = "def";
+        location.search.indexOf("qqcom_pgv_from=") > -1 && (f = location.host + location.pathname + location.search);
+        var p = t.ARTICLE_INFO || null, l = p && p.catalog_full;
+        if (l)for (var g = 0; g < c.length; g += 1)if (i.indexOf(c[g]) > -1) {
+            n(c[g]);
+            break
+        }
+        l && a(), l || ("undefined" != typeof whatCatalog && (t.pvCSTM = t.whatCatalog), r({pgUserType: "F." + f}))
+    }(window, document);</script>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/require.min.js" data-main="js/main.js"></script>
+<script src="js/main.js"></script>
+<audio id="musicid" preload="preload" loop="loop"></audio>
+</body>
+</html>
